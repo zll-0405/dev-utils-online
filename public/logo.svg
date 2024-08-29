@@ -1,0 +1,14 @@
+<svg width="200" height="100" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .letter { font-family: Arial, sans-serif; font-size: 80px; font-weight: bold; }
+    .d { fill: #FF4136; }
+    .e { fill: #2ECC40; }
+    .v { fill: #0074D9; }
+  </style>
+  
+  <text x="10" y="80" class="letter d">d</text>
+  <text x="70" y="80" class="letter e">e</text>
+  <text x="130" y="80" class="letter v">v</text>
+  
+  <circle cx="85" cy="30" r="15" fill="#2ECC40" />
+</svg>
