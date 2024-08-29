@@ -1,6 +1,8 @@
 import Base64Converter from "@/tools/Base64Converter";
 import TimestampConverter from "@/tools/TimeStamp";
 
+export const runtime = "edge";
+
 const tools = {
   base64: Base64Converter,
   timestamp: TimestampConverter,
