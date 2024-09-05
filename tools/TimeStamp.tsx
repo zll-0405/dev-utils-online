@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const TimestampConverter = () => {
-  const [timestamp, setTimestamp] = useState('');
-  const [date, setDate] = useState('');
+  const [timestamp, setTimestamp] = useState("");
+  const [date, setDate] = useState("");
 
   const convertTimestamp = () => {
     const dateObj = new Date(parseInt(timestamp) * 1000);
@@ -27,7 +27,10 @@ const TimestampConverter = () => {
           onChange={(e) => setTimestamp(e.target.value)}
           className="w-full p-2 border border-gray-300 rounded"
         />
-        <button onClick={convertTimestamp} className="mt-2 p-2 bg-blue-500 text-white rounded">
+        <button
+          onClick={convertTimestamp}
+          className="mt-2 p-2 bg-blue-500 text-white rounded"
+        >
           Convert to Date
         </button>
       </div>
@@ -39,7 +42,10 @@ const TimestampConverter = () => {
           onChange={(e) => setDate(e.target.value)}
           className="w-full p-2 border border-gray-300 rounded"
         />
-        <button onClick={convertDate} className="mt-2 p-2 bg-green-500 text-white rounded">
+        <button
+          onClick={convertDate}
+          className="mt-2 p-2 bg-green-500 text-white rounded"
+        >
           Convert to Timestamp
         </button>
       </div>
