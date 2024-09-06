@@ -1,6 +1,13 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
+import { useCallback, useState } from "react";
+import { Textarea } from "@/components/base/TextareaComponent";
+import { Tabs, TabsList, TabsTrigger } from "@/components/base/TabsComponent";
+import { Card } from "@/components/base/CardComponent";
+import { Button } from "@/components/base/ButtonComponent";
+import { Label } from "@/components/base/LabelComponent";
+import { useCopyToClipboard } from "@/components/hooks/useCopyToClipboard";
+import PageHeader from "@/components/PageHeader";
 
 export function toBase64(value: string) {
   try {
@@ -22,88 +29,87 @@ export function fromBase64(value: string): string {
   }
 }
 
+/**
+ * Checks if the given string consists entirely of printable ASCII characters.
+ * Printable ASCII characters are those in the range from space (0x20) to tilde (0x7E).
+ */
 export function isPrintableASCII(str: string): boolean {
   return /^[\x20-\x7E]*$/.test(str);
 }
 
-const Base64Converter = () => {
+export default function Base64Encoder() {
+  const [type, setType] = useState<"encoder" | "decoder">("encoder");
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
-  const [mode, setMode] = useState("encode");
+  const { buttonText, handleCopy } = useCopyToClipboard();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const newInput = e.target.value;
-    setInput(newInput);
-    if (mode === "encode") {
-      setOutput(toBase64(newInput));
-    } else {
+  const handleChange = useCallback(
+    (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+      const { value } = event.currentTarget;
+      setInput(value);
+
       try {
-        setOutput(fromBase64(newInput));
-      } catch (error) {
-        setOutput("Invalid Base64 string");
+        setOutput(type === "encoder" ? toBase64(value) : fromBase64(value));
+      } catch {
+        setOutput("Invalid input, please provide valid Base64 string");
       }
-    }
-  };
+    },
+    [type]
+  );
 
-  const handleModeChange = (newMode: "encode" | "decode") => {
-    setMode(newMode);
-    setInput("");
+  const setActiveTab = (type: "encoder" | "decoder") => {
+    setType(type);
     setOutput("");
-  };
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(output);
+    setInput("");
   };
 
   return (
-    <div className="p-6 max-w-2xl mx-auto bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl mb-4 text-center">
-        Base64 encoder/decoder
-      </h2>
-      <p className="text-center text-gray-600 mb-6">Free</p>
-      <div className="flex mb-4">
-        <button
-          onClick={() => handleModeChange("encode")}
-          className={`flex-1 p-2 ${mode === "encode" ? "bg-white text-black border-b-2 border-blue-500" : "bg-gray-100 text-gray-600"} rounded-tl`}
-        >
-          Encode
-        </button>
-        <button
-          onClick={() => handleModeChange("decode")}
-          className={`flex-1 p-2 ${mode === "decode" ? "bg-white text-black border-b-2 border-blue-500" : "bg-gray-100 text-gray-600"} rounded-tr`}
-        >
-          Decode
-        </button>
-      </div>
-      <div className="mb-4">
-        <label className="block mb-2 font-semibold">
-          {mode === "encode" ? "Text to encode" : "Base64 to decode"}
-        </label>
-        <textarea
-          value={input}
-          onChange={handleInputChange}
-          placeholder="Paste here"
-          className="w-full h-32 p-2 border border-gray-300 rounded"
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block mb-2 font-semibold">
-          {mode === "encode" ? "Base64" : "Text"}
-        </label>
-        <textarea
-          value={output}
-          readOnly
-          className="w-full h-32 p-2 border border-gray-300 rounded"
-        />
-      </div>
-      <button
-        onClick={handleCopy}
-        className="w-full p-2 bg-gray-200 text-gray-700 rounded"
-      >
-        Copy
-      </button>
-    </div>
-  );
-};
+    <main className="flex items-center justify-center h-screen">
+      <div className="max-w-2xl mb-12 text-center">
 
-export default Base64Converter;
+        <PageHeader
+          title="Base64 encoder/decoder"
+          description="Free"
+        />
+
+        <Card className="flex flex-col p-6 hover:shadow-none shadow-none rounded-xl">
+          <Tabs defaultValue="encoder" className="mb-6">
+            <TabsList className="flex">
+              <TabsTrigger
+                className="flex flex-1"
+                value="encoder"
+                onClick={() => setActiveTab("encoder")}
+              >
+                Encode
+              </TabsTrigger>
+              <TabsTrigger
+                className="flex flex-1"
+                onClick={() => setActiveTab("decoder")}
+                value="decoder"
+              >
+                Decode
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
+
+          <div>
+            <Label>{type === "encoder" ? "Text to encode" : "Base64"}</Label>
+            <Textarea
+              rows={6}
+              placeholder="Paste here"
+              onChange={handleChange}
+              className="mb-6"
+              value={input}
+            />
+            <Label>{type === "encoder" ? "Base64" : "Text"}</Label>
+            <Textarea value={output} rows={6} readOnly className="mb-4" />
+            <Button variant="outline" onClick={() => handleCopy(output)}>
+              {buttonText}
+            </Button>
+          </div>
+        </Card>
+
+      </div>
+    </main>
+  );
+}
