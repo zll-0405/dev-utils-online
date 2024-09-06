@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
 import Image from "next/image";
+import { ThemeToggle } from "./ThemeToggle";
 
 export default function Header() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -29,16 +30,7 @@ export default function Header() {
         </Link>
       </div>
 
-      <button
-        onClick={toggleTheme}
-        className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 transition-colors"
-      >
-        {isDarkMode ? (
-          <Moon className="w-6 h-6 text-slate-50" />
-        ) : (
-          <Sun className="w-6 h-6 text-gray-800" />
-        )}
-      </button>
+      <ThemeToggle />
     </header>
   );
 }
