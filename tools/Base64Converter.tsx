@@ -64,14 +64,15 @@ export default function Base64Encoder() {
   };
 
   return (
-    <main className="flex items-center justify-center h-screen">
-      <div className="max-w-2xl mb-12 text-center">
-
+    <main>
+      <section className="container max-w-2xl mb-12">
         <PageHeader
           title="Base64 encoder/decoder"
           description="Free"
         />
+      </section>
 
+      <section className="container max-w-2xl mb-6">
         <Card className="flex flex-col p-6 hover:shadow-none shadow-none rounded-xl">
           <Tabs defaultValue="encoder" className="mb-6">
             <TabsList className="flex">
@@ -93,7 +94,7 @@ export default function Base64Encoder() {
           </Tabs>
 
           <div>
-            <Label>{type === "encoder" ? "Text to encode" : "Base64"}</Label>
+            <Label style={{ marginTop: '16px' }}>{type === "encoder" ? "Text to encode" : "Base64"}</Label>
             <Textarea
               rows={6}
               placeholder="Paste here"
@@ -101,15 +102,14 @@ export default function Base64Encoder() {
               className="mb-6"
               value={input}
             />
-            <Label>{type === "encoder" ? "Base64" : "Text"}</Label>
-            <Textarea value={output} rows={6} readOnly className="mb-4" />
-            <Button variant="outline" onClick={() => handleCopy(output)}>
+            <Label style={{ marginTop: '16px' }}>{type === "encoder" ? "Base64" : "Text"}</Label>
+            <Textarea value={output} rows={6} readOnly className="mb-6" />
+            <Button style={{ marginTop: '16px' }} variant="outline" onClick={() => handleCopy(output)}>
               {buttonText}
             </Button>
           </div>
         </Card>
-
-      </div>
+      </section>
     </main>
   );
 }

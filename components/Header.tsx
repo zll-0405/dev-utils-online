@@ -1,16 +1,11 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Sun, Moon } from "lucide-react";
 import Image from "next/image";
 import { ThemeToggle } from "./ThemeToggle";
 
 export default function Header() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+  const [isDarkMode] = useState(false);
 
   useEffect(() => {
     document.body.classList.toggle("dark", isDarkMode);
