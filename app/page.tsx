@@ -1,9 +1,15 @@
+"use client"
+
 import Image from "next/image";
-import { tools } from "@/data/tools";
+import { getTools } from "@/data/tools";
+import { useLanguage } from "./contexts/LanguageContext";
 import HomeCard from "@/components/HomeCard";
 import { CMDK } from "@/components/CMDK";
 
 export default function Home() {
+  const { language } = useLanguage();
+  const tools = getTools(language);
+
   return (
     <main className="flex flex-col items-center p-8 max-w-6xl mx-auto">
       <Image

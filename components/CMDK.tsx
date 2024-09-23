@@ -9,10 +9,11 @@ import {
   CommandList,
   CommandSeparator,
 } from "./base/CommandMenu";
-import { tools } from "@/data/tools";
+import { getTools } from "@/data/tools";
 import { Input } from "./base/InputComponent";
 import { useEffect, useState } from "react";
 import { Home } from "lucide-react";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 
 interface CDMKProps {
   showSearch?: boolean;
@@ -22,6 +23,9 @@ export function CMDK(props: CDMKProps) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
   const showSearch = props.showSearch ?? false;
+
+  const { language } = useLanguage();
+  const tools = getTools(language);
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
