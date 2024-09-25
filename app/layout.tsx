@@ -7,7 +7,10 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dev Utils Online",
+  title: {
+    default: "Dev Utils Online",
+    template: "%s | Dev Utils Online"
+  },
   description: "在线开发工具",
 };
 

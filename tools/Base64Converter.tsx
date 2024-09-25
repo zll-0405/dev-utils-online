@@ -8,6 +8,7 @@ import { Button } from "@/components/base/ButtonComponent";
 import { Label } from "@/components/base/LabelComponent";
 import { useCopyToClipboard } from "@/components/hooks/useCopyToClipboard";
 import PageHeader from "@/components/PageHeader";
+import Base64SEO from "@/data/seo/base64";
 
 export function toBase64(value: string) {
   try {
@@ -109,6 +110,10 @@ export default function Base64Encoder() {
             </Button>
           </div>
         </Card>
+      </section>
+
+      <section className="container max-w-2xl mb-6" style={{marginTop: '16px'}}>
+        <Base64SEO />
       </section>
     </main>
   );
