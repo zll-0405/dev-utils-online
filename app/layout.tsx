@@ -3,13 +3,12 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/theme-provider";
-import { LanguageProvider } from "./contexts/LanguageContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Dev Utils Online",
-  description: "Dev Utils Online for developer",
+  description: "在线开发工具",
 };
 
 export default function RootLayout({
@@ -26,10 +25,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <LanguageProvider>
-            <Header />
-            {children}
-          </LanguageProvider>
+          <Header />
+          {children}
         </ThemeProvider>
       </body>
     </html>

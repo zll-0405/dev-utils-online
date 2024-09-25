@@ -1,15 +1,11 @@
 "use client"
 
 import Image from "next/image";
-import { getTools } from "@/data/tools";
-import { useLanguage } from "./contexts/LanguageContext";
+import { tools } from "@/data/tools";
 import HomeCard from "@/components/HomeCard";
 import { CMDK } from "@/components/CMDK";
 
 export default function Home() {
-  const { language } = useLanguage();
-  const tools = getTools(language);
-
   return (
     <main className="flex flex-col items-center p-8 max-w-6xl mx-auto">
       <Image
@@ -21,7 +17,7 @@ export default function Home() {
       />
       <h1 className="text-4xl font-bold mb-2">Dev Utils Online</h1>
       <p className="text-xl text-center mb-8 text-gray-600">
-        Here are fast, free dev utils.
+        在线开发工具，免费，快速
       </p>
       <div className="w-full max-w-2xl mb-12">
         <CMDK showSearch />

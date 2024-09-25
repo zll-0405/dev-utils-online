@@ -67,8 +67,8 @@ export default function Base64Encoder() {
     <main>
       <section className="container max-w-2xl mb-12">
         <PageHeader
-          title="Base64 encoder/decoder"
-          description="Free"
+          title="Base64 编码/解码"
+          description="免费，快速"
         />
       </section>
 
@@ -81,14 +81,14 @@ export default function Base64Encoder() {
                 value="encoder"
                 onClick={() => setActiveTab("encoder")}
               >
-                Encode
+                Encode（编码）
               </TabsTrigger>
               <TabsTrigger
                 className="flex flex-1"
                 onClick={() => setActiveTab("decoder")}
                 value="decoder"
               >
-                Decode
+                Decode（解码）
               </TabsTrigger>
             </TabsList>
           </Tabs>
