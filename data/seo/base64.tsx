@@ -20,8 +20,8 @@ export default function Base64SEO() {
       <section>
         <h2 className='text-lg font-semibold leading-snug mb-1'>为什么要编码数据？</h2>
         <p className='text-base text-muted-foreground mb-2 font-light'>
-          Base64编码将二进制数据（如图像或文件）转换为可以安全地通过基于文本的协议
-          （如HTTP、电子邮件等）传输的文本格式。这个过程确保数据保持完整，
+          Base64 编码将二进制数据（如图像或文件）转换为可以安全地通过基于文本的协议
+          （如 HTTP 、电子邮件等）传输的文本格式。这个过程确保数据保持完整，
           并防止在传输过程中发生损坏。
         </p>
         <ul className='list-disc pl-2 text-muted-foreground' style={{ listStyleType: 'disc' }}>
@@ -77,29 +77,24 @@ export default function Base64SEO() {
             拖放您的文件或文本，获取一个可以轻松复制和使用的 ASCII 字符串输出。
           </li>
           <li className='mb-2'>
-            <b className='font-semibold text-card-foreground'>这个工具可以编码Base64吗？</b> <br /> 是的，您可以使用我们的在线工具
+            <b className='font-semibold text-card-foreground'>这个工具可以编码 Base64 吗？</b> <br /> 是的，您可以使用我们的在线工具
             编码文本。只需粘贴您的文本并获取编码结果。
           </li>
           <li className='mb-2'>
-            <b className='font-semibold text-card-foreground'>如何在线将文本编码为Base64？</b> <br /> 使用我们的在线工具，
-            将您的文本粘贴到输入框中并复制输出。几秒钟内，您就可以有效地将字符转换为
-            网络安全格式。
+            <b className='font-semibold text-card-foreground'>如何在线将文本编码为 Base64 ？</b> <br /> 使用我们的在线工具，
+            将您的文本粘贴到输入框中并复制输出。几秒钟内，您就可以有效地将字符转换为网络安全格式。
           </li>
           <li className='mb-2'>
-            <b className='font-semibold text-card-foreground'>如何在线解码Base64文本？</b> <br /> 使用我们的在线工具，
-            将Base64编码的文本粘贴到输入框中并复制解码后的输出。
+            <b className='font-semibold text-card-foreground'>如何在线解码 Base64 文本？</b> <br /> 使用我们的在线工具，
+            将 Base64 编码的文本粘贴到输入框中并复制解码后的输出。
           </li>
           <li className='mb-2'>
-            <b className='font-semibold text-card-foreground'>什么是Base64？</b> <br /> 它是一种编码方案，用于将二进制数据
-            转换为可以安全地通过互联网传输的文本格式，使用ASCII字符的组合。
-          </li>
-          <li className='mb-2'>
-            <b className='font-semibold text-card-foreground'>我可以将这个工具用于文件吗？</b> <br /> 是的，我们的工具适用于
-            文件和文本，使其对Web应用程序和API有用。
+            <b className='font-semibold text-card-foreground'>什么是 Base64 ？</b> <br /> 它是一种编码方案，用于将二进制数据
+            转换为可以安全地通过互联网传输的文本格式，使用 ASCII 字符的组合。
           </li>
           <li className='mb-2'>
             <b className='font-semibold text-card-foreground'>编码和解码有什么区别？</b> <br />{" "}
-            编码将二进制数据转换为Base64文本格式，而解码将Base64文本转换回其原始二进制格式。
+            编码将二进制数据转换为 Base64 文本格式，而解码将 Base64 文本转换回其原始二进制格式。
           </li>
         </ul>
       </section>

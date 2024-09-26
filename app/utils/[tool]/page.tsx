@@ -1,11 +1,14 @@
 import Base64Converter from "@/tools/Base64Converter";
 import { metadata as base64Metadata } from "@/data/seo/base64";
+import UnicodeConverter from "@/tools/UnicodeConverter";
+import { metadata as unicodeMetadata } from "@/data/seo/unicode";
 import { Metadata } from 'next';
 
 export const runtime = "edge";
 
 const toolMap = {
   base64: { component: Base64Converter, metadata: base64Metadata },
+  unicode: { component: UnicodeConverter, metadata:unicodeMetadata}
 };
 
 export async function generateMetadata({ params }: { params: { tool: string } }): Promise<Metadata> {
