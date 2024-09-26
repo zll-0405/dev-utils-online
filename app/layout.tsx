@@ -12,6 +12,10 @@ export const metadata: Metadata = {
     template: "%s | Dev Utils Online"
   },
   description: "在线开发工具",
+  metadataBase: new URL('https://devutilsonline.top/'),
+  alternates:{
+    canonical:'./',
+  }
 };
 
 export default function RootLayout({
