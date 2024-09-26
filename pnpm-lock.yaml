@@ -47,9 +47,6 @@ dependencies:
   tailwind-merge:
     specifier: ^2.5.2
     version: 2.5.2
-  vsc-dark-plus:
-    specifier: link:react-syntax-highlighter/dist/cjs/styles/prism/vsc-dark-plus
-    version: link:react-syntax-highlighter/dist/cjs/styles/prism/vsc-dark-plus
 
 devDependencies:
   '@types/node':
