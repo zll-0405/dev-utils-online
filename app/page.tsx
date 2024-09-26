@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import { tools } from "@/data/tools";
+import { tools } from "@/data/tools/tools";
 import HomeCard from "@/components/HomeCard";
 import { CMDK } from "@/components/CMDK";
 

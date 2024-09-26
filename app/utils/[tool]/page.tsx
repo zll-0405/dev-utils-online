@@ -1,18 +1,11 @@
-import Base64Converter from "@/tools/Base64Converter";
-import { metadata as base64Metadata } from "@/data/seo/base64";
-import UnicodeConverter from "@/tools/UnicodeConverter";
-import { metadata as unicodeMetadata } from "@/data/seo/unicode";
+import { Suspense } from 'react';
+import { toolsMap, ToolKey } from '@/data/tools/toolsMap';
 import { Metadata } from 'next';
 
 export const runtime = "edge";
 
-const toolMap = {
-  base64: { component: Base64Converter, metadata: base64Metadata },
-  unicode: { component: UnicodeConverter, metadata:unicodeMetadata}
-};
-
 export async function generateMetadata({ params }: { params: { tool: string } }): Promise<Metadata> {
-  const tool = toolMap[params.tool as keyof typeof toolMap];
+  const tool = toolsMap[params.tool as ToolKey];
   if (tool && tool.metadata) {
     return tool.metadata;
   }
@@ -20,7 +13,7 @@ export async function generateMetadata({ params }: { params: { tool: string } })
 }
 
 export default function ToolPage({ params }: { params: { tool: string } }) {
-  const tool = toolMap[params.tool as keyof typeof toolMap];
+  const tool = toolsMap[params.tool as ToolKey];
 
   if (!tool) {
     return <div>Tool not found</div>;
@@ -30,7 +23,9 @@ export default function ToolPage({ params }: { params: { tool: string } }) {
 
   return (
     <div className="p-6">
-      <ToolComponent />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ToolComponent />
+      </Suspense>
     </div>
   );
 }

@@ -9,7 +9,7 @@ import {
   CommandList,
   CommandSeparator,
 } from "./base/CommandMenu";
-import { tools } from "@/data/tools";
+import { tools } from "@/data/tools/tools";
 import { Input } from "./base/InputComponent";
 import { useEffect, useState } from "react";
 import { Home } from "lucide-react";
