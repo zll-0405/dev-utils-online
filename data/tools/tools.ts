@@ -17,4 +17,10 @@ export const tools = [
       "使用我们的在线工具轻松进行 URL 的编码和解码，支持各种 URL 格式的转换。",
     link: "/utils/url",
   },
+  {
+    title: "图片转 Base64",
+    description:
+      "使用我们的在线工具轻松进行图片转 Base64。",
+    link: "/utils/imagetobase64",
+  },
 ];
