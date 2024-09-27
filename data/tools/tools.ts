@@ -11,4 +11,10 @@ export const tools = [
       "使用我们的在线工具轻松进行 Unicode 字符的编码和解码，支持各种 Unicode 格式的转换。",
     link: "/utils/unicode",
   },
+  {
+    title: "URL 编码/解码",
+    description:
+      "使用我们的在线工具轻松进行 URL 的编码和解码，支持各种 URL 格式的转换。",
+    link: "/utils/url",
+  },
 ];
