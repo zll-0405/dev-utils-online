@@ -23,4 +23,9 @@ export const tools = [
       "使用我们的在线工具轻松进行图片转 Base64。",
     link: "/utils/imagetobase64",
   },
+  {
+    title: "Base64 转图片",
+    description: "将 Base64 编码的字符串转换为图片。",
+    link: "/utils/base64toimage",
+  },
 ];
